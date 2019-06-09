@@ -1,0 +1,31 @@
+COMPILE_DEPS = [
+    '//lib:CORE_DEPS',
+    '//drivers/utilities:onos-drivers-utilities',
+    '//protocols/netconf/api:onos-protocols-netconf-api',
+]
+
+REQUIRED_APPS = [
+    'org.onosproject.drivers.maoh3c.netconf',
+    'org.onosproject.netconf',
+]
+
+BUNDLES = [
+    ':onos-drivers-maoh3c',
+    '//drivers/utilities:onos-drivers-utilities',
+]
+
+osgi_jar (
+    deps = COMPILE_DEPS,
+    resources_root = 'src/main/resources',
+    resources = glob(['src/main/resources/**']),
+)
+
+onos_app (
+    app_name = 'org.onosproject.drivers.maoh3c.netconf',
+    title = 'Mao H3C S5130S-52P-EI NETCONF Drivers',
+    category = 'Drivers',
+    url = 'https://www.maojianwei.com',
+    description = 'Adds support for H3C S5130S-52P-EI using NETCONF.',
+    included_bundles = BUNDLES,
+    required_apps = [ 'org.onosproject.netconf' ],
+)

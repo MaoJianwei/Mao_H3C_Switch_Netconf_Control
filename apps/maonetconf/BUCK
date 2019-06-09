@@ -1,0 +1,31 @@
+COMPILE_DEPS = [
+    '//lib:CORE_DEPS',
+    '//core/api:onos-api',
+    '//lib:org.apache.karaf.shell.console',
+    '//cli:onos-cli',
+    '//lib:JACKSON',
+    '//utils/rest:onlab-rest',
+    '//lib:javax.ws.rs-api',
+]
+
+osgi_jar_with_tests (
+    deps = COMPILE_DEPS,
+    web_context = '/onos/v1/maoh3c',
+    api_title = 'Mao H3C Netconf Remote Control',
+    api_version = '1.0',
+    api_description = 'REST API for Mao H3C S5130S-52P-EI',
+    api_package = 'com.maojianwei.h3c'
+)
+
+REQUIRED_APPS = [
+    'org.onosproject.drivers.maoh3c.netconf',
+]
+
+onos_app (
+    app_name = 'com.maojianwei.h3c.netconf.control',
+    title = 'Mao H3C Netconf Control App',
+    category = 'Traffic Steering',
+    url = 'https://www.maojianwei.com',
+    description = 'Mao H3C Netconf Control App',
+    required_apps = REQUIRED_APPS,
+)

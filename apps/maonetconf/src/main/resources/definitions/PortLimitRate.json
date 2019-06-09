@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "title": "PortLimitRate",
+  "required": [
+    "ifIndex",
+    "direction",
+    "CIR",
+    "CBS"
+  ],
+  "properties": {
+    "ifIndex": {
+      "type": "int",
+      "description": "Index of interface",
+      "example": 3
+    },
+    "direction": {
+      "type": "String",
+      "description": "in/out",
+      "example": "in"
+    },
+    "CIR": {
+      "type": "int",
+      "description": "Rate(kbps): range 8-1048576, times 8",
+      "example": 64
+    },
+    "CBS": {
+      "type": "int",
+      "description": "Burst(Byte): range 512-134217728, times 512",
+      "example": 1024
+    }
+  }
+}

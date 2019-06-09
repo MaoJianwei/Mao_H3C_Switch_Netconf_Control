@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "title": "PortPriority",
+  "required": [
+    "ifIndex",
+    "priority",
+    "trustMode"
+  ],
+  "properties": {
+    "ifIndex": {
+      "type": "int",
+      "description": "Index of interface",
+      "example": 33
+    },
+    "priority": {
+      "type": "int",
+      "description": "Priority range 0~7",
+      "example": 6
+    },
+    "trustMode": {
+      "type": "int",
+      "description": "Untrust/Dot1p/DSCP, Untrust not support now",
+      "example": "Untrust"
+    }
+  }
+}
